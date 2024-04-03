@@ -3,6 +3,7 @@ import pandas as pd
 import altair as alt
 
 import convertionRate
+import goalsXG
 
 st.title('Striker Analysis')
 main_file=pd.read_csv('StrikerAnalysis.csv')
@@ -23,3 +24,4 @@ def modify_file(main_file):
 main_file=modify_file(main_file)
 
 convertionRate.convertionRateOfStriker(main_file)
+goalsXG.goalsVsXG(main_file)
