@@ -14,5 +14,10 @@ def goalsVsXG(main_file):
         }
     ).reset_index().sort_values(by='Goals',ascending=False).head(15)
     st.write(main_file)
-    return ScatterPlot.scatter_plot(main_file,'Goals','X G')
+    # st.alt.Chart(main_file,title='Convertion rate').mark_circle().encode(
+    #     x='Goals',
+    #     y='X G',
+    #     tooltip=['Goals','X G']
+    # ).interactive()
+    return st.altair_chart(ScatterPlot.scatter_plot(main_file,'Goals','X G','Goals vs XG'))
     

@@ -27,5 +27,5 @@ def convertionRateOfStriker(main_file):
 
     st.write('Convertion Rate Table')
     st.write(convertion_rate)
-    return st.altair_chart(ScatterPlot.scatter_plot(convertion_rate,'convertion rate of total shots','convertion rate of shots on target'),use_container_width=True)
+    return st.altair_chart(ScatterPlot.scatter_plot(convertion_rate,'convertion rate of total shots','convertion rate of shots on target','Convertion Rate'),use_container_width=True)
 
