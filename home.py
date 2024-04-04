@@ -8,6 +8,13 @@ import goalsXG
 st.title('Striker Analysis')
 main_file=pd.read_csv('StrikerAnalysis.csv')
 
+
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+
+local_css("styles.css")
 def modify_file(main_file):
     main_file=main_file[(main_file['Year']>=2018)]
     #top 4 leagues only
@@ -23,5 +30,11 @@ def modify_file(main_file):
    
 main_file=modify_file(main_file)
 
-convertionRate.convertionRateOfStriker(main_file)
-goalsXG.goalsVsXG(main_file)
+tab1,tab2=st.tabs(['Convertion Rate of Strikers','Goals vs XG'])
+
+with tab1:
+    convertionRate.convertionRateOfStriker(main_file)
+
+with tab2:
+    goalsXG.goalsVsXG(main_file)
+    
