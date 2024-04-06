@@ -4,6 +4,7 @@ import altair as alt
 
 import convertionRate
 import goalsXG
+import linearRegression
 
 st.title('Striker Analysis')
 main_file=pd.read_csv('StrikerAnalysis.csv')
@@ -30,11 +31,14 @@ def modify_file(main_file):
    
 main_file=modify_file(main_file)
 
-tab1,tab2=st.tabs(['Convertion Rate of Strikers','Goals vs XG'])
+tab1,tab2,tab3=st.tabs(['Convertion Rate of Strikers','Goals vs XG','Linear Regression'])
 
 with tab1:
     convertionRate.convertionRateOfStriker(main_file)
 
 with tab2:
     goalsXG.goalsVsXG(main_file)
-    
+
+with tab3:
+    linearRegression.linRegression(main_file)
+
